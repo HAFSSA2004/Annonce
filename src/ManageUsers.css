@@ -1,0 +1,45 @@
+
+
+.ma1 {
+    width: 250px;
+}
+
+.ma1 button {
+    font-weight: bold;
+    border: none;
+}
+
+.ma1 .btn-warning {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.inp1 {
+    width: 40%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.t1 {
+    width: 90%;
+    margin: auto;
+}
+
+.t1 th {
+    background-color: #f8f9fa;
+}
+
+.text-success {
+    color: green;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-danger i {
+    font-size: 14px;
+}

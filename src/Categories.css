@@ -1,0 +1,129 @@
+/* .category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  /* .category-item {
+    width: 150px;
+    text-align: center;
+  } 
+  
+  .category-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .category-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .category-description {
+    margin-top: 8px;
+    font-weight: bold;
+  } */
+  .category-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+.category-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Category item styling */
+.category-item {
+    position: relative; /* Allow absolute positioning for text */
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 180px; /* Adjusted width for balance */
+    height: 140px; /* Consistent height */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More subtle shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category-item:hover {
+    transform: scale(1.08); /* Slight upscale effect */
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.category-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+   
+    border-radius: 0 0 12px 12px;
+    -webkit-text-stroke: 0.5px black;
+}
+
+/* Scroll Buttons */
+
+
+.category-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.category-item {
+    position: relative; /* Allow absolute positioning of text */
+    width: 200px; /* Fixed width for all items */
+    height: 150px; /* Fixed height for uniformity */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
+    margin-bottom: 20px; /* Space below each item */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+    
+}
+
+.category-item:hover {
+    transform: scale(1.05); /* Scale on hover */
+}
+
+.category-image {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Cover the card while maintaining aspect ratio */
+    border-radius: 10px; /* Match the border radius of the card */
+}
+
+.category-description {
+    position: absolute; /* Absolute positioning for overlay */
+    bottom: 0; /* Position at the bottom of the card */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    color: white; /* White text color */
+  
+    font-size: 30px;
+    text-align: center; /* Center the text */
+    padding: 10px; /* Add padding around the text */
+    border-radius: 0 0 10px 10px; /* Rounded corners for the bottom */
+    -webkit-text-stroke: 1px rgb(12, 11, 11)   ;
+
+}  

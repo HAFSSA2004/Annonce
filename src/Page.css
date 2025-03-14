@@ -1,0 +1,43 @@
+
+   
+
+        .hero-subtitle {
+             /* font-size: 2.5rem; Large font size for the title */
+            font-style: normal;
+            font-weight: bold;            margin-bottom: 0.5rem;
+            margin-left: 70px;
+            -webkit-text-stroke:1px black; /* stroke size and color */
+            color:white; /* text fill color */
+            margin-top: 100px;
+            font-size: 2.5rem ;
+        }
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: 1.8rem; /* Plus grand sur les écrans plus petits */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 1rem; /* Encore plus grand pour les très petits écrans */
+            }
+        }
+
+       
+        
+
+        .filter-container {
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            gap: 20px; /* Spacing between filter dropdowns */
+            margin-top: 1rem; /* Space above filters */
+        }
+        .filter-dropdown {
+            border-radius: 25px; /* Rounded corners for dropdowns */
+            padding: 10px 20px; /* Padding inside the dropdown */
+            border: 1px solid rgba(255, 255, 255, 0.7); /* Light border */
+            /*background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            color:black; /* White text color */
+            /* White text color */
+        }

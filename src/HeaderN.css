@@ -1,0 +1,52 @@
+.nav-link-custom {
+    background-color: transparent;
+    color: #444;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .nav-link-custom::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ffa500; /* Orange */
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link-custom:hover {
+    color: #ffa500;
+  }
+  
+  .nav-link-custom:hover::after {
+    width: 100%;
+  }
+  
+  .nav-link-custom:active {
+    transform: scale(0.95);
+  }
+  
+
+  .logout-icon {
+    position: absolute;
+    right: 25px;
+    top: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .logout-icon:hover {
+    color: darkred;
+  }
+  

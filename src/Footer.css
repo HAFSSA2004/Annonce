@@ -1,0 +1,101 @@
+/* Footer global */
+footer {
+  background-color: #d67b21; /* Orange color */
+  color: white;
+  padding: 40px 0; /* Vertical padding */
+  width: 100%;
+  margin: 0 auto;
+  height: auto; /* Supprimer la hauteur fixe */
+}
+
+/* Chaque section dans le footer */
+.footer-section {
+  margin-bottom: 75px; /* Espace entre les sections */
+}
+
+/* Liens dans le footer */
+footer a {
+  color: aliceblue;
+  text-decoration: none;
+}
+
+/* Titre de chaque section dans le footer */
+.footer-section h5 {
+  font-weight: bold;
+  margin-bottom: 20px; /* Espace sous le titre de la section */
+}
+
+/* Espacement entre les liens */
+.footer-section p {
+  margin: 5px 0; /* Espacement entre les liens */
+}
+
+/* Conteneur pour les icônes sociales */
+.social-icons {
+  display: flex;
+  align-items: center;
+  padding-left: 50px; /* Alignement des icônes avec le titre */
+}
+
+/* Style des liens des icônes sociales */
+.social-icons a {
+  text-decoration: none;
+  width: 50px;
+  color: white;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Media Query pour les écrans de taille moyenne */
+@media (max-width: 992px) {
+  .footer-section {
+    margin-bottom: 50px; /* Réduire l'espacement entre les sections */
+  }
+
+  /* Modifier la disposition en une seule colonne sur les petits écrans */
+  .container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux sections de se placer côte à côte sur petits écrans */
+    justify-content: space-between; /* Ajouter un espace entre les colonnes */
+  }
+
+  .footer-section {
+    width: 48%; /* Largeur réduite pour deux sections sur une ligne */
+    text-align: center; /* Centrer le texte */
+  }
+
+  .social-icons {
+    justify-content: center; /* Centrer les icônes sur les petits écrans */
+    padding-left: 0; /* Supprimer le padding gauche */
+  }
+}
+
+/* Media Query pour les petits écrans (tablettes et mobiles) */
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 0; /* Réduire le padding pour les petits écrans */
+  }
+
+  /* Disposer les sections du footer en 2 sur 2 sur les petits écrans */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Assurer l'espace entre les colonnes */
+  }
+
+  .footer-section {
+    width: 48%; /* Deux sections côte à côte */
+    margin-bottom: 20px; /* Réduire l'espacement entre les sections */
+    text-align: center; /* Centrer le texte */
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-left: 0;
+  }
+}

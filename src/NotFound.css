@@ -1,0 +1,95 @@
+/* Full-page background with dynamic color */
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  font-family: 'Arial', sans-serif;
+  color: white;
+  padding: 20px; /* Add some padding to prevent elements from touching the edges */
+}
+
+/* Container for error content */
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  padding: 20px;
+  max-width: 90%; /* Ensure it doesn't overflow on mobile */
+  box-sizing: border-box;
+}
+
+/* Error image styling */
+.not-found-image {
+  width: 350px;
+  height: auto;
+  animation: float 5s ease-in-out infinite;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  max-width: 100%; /* Make sure the image does not overflow */
+}
+
+/* Floating animation for the image */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* Error message styling */
+.error-message {
+  font-size: 30px;
+  color: #2d2525;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  margin-top: 0px;
+  margin-left: 10px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 100%; /* Prevent the text from overflowing */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .not-found {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .not-found-image {
+    width: 250px; /* Scale down the image size for mobile */
+    margin-bottom: 15px; /* Adjust the margin */
+  }
+
+  .error-message {
+    font-size: 24px; /* Reduce font size on mobile */
+    margin-left: 0; /* Center the text */
+    padding: 0 10px; /* Add padding to avoid text touching edges */
+  }
+}
+
+/* Extra small mobile responsiveness */
+@media (max-width: 480px) {
+  .not-found {
+    padding: 5px; /* Reduce padding further */
+  }
+
+  .not-found-image {
+    width: 200px; /* Further reduce image size */
+  }
+
+  .error-message {
+    font-size: 20px; /* Smaller font size for very small screens */
+    padding: 0 5px; /* Add padding to avoid text touching edges */
+  }
+}

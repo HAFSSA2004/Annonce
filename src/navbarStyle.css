@@ -1,0 +1,79 @@
+/* Navbar Général */
+.navbar {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+/* Logo agrandi */
+.navbar-logo {
+    width: 140px;  
+    height: 140px;
+    transition: transform 0.3s ease;
+}
+.navbar-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Conteneur pour bien centrer la recherche */
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Barre de recherche bien centrée */
+.search-bar {
+    width: 450px;  /* Ajuster la largeur */
+    display: flex;
+    align-items: center;
+}
+.search-bar .form-control {
+    border-radius: 20px 0 0 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+.search-bar .btn {
+    border-radius: 0 20px 20px 0;
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Boutons */
+.sign {
+    color: #f4a62a;
+    border: 2px solid #f4a62a;
+    background: transparent;
+    font-weight: bold;
+}
+.sign:hover {
+    color: #fff;
+    background: #f4a62a;
+    border-color: #f4a62a;
+}
+
+.btn-warning {
+    background: #ff9900;
+    border: none;
+    font-weight: bold;
+}
+.btn-warning:hover {
+    background: #e68300;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .search-bar {
+        width: 250px;
+    }
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

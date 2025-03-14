@@ -1,0 +1,50 @@
+/* Default Light Theme */
+.info-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px;
+    background: white; /* Light theme background */
+}
+
+.info-card {
+    background: white; /* White background for light mode */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode - Glassy Effect */
+body[data-theme='dark'] .info-cards-container {
+    background: transparent; /* Remove background */
+}
+
+body[data-theme='dark'] .info-card {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* Glassy effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+}
+
+body[data-theme='dark'] .info-card h3 {
+    color: white; /* Adjust text color */
+}
+
+body[data-theme='dark'] .info-card p {
+    color: rgba(255, 255, 255, 0.8); /* Lighter text for readability */
+}

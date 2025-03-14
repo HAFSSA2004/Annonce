@@ -1,0 +1,146 @@
+/* General container */
+.signup-container {
+  margin-top: 60px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px;
+  background-color: rgb(227, 187, 136);
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-container:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Title styling */
+.signup-title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color:  rgb(160, 100, 40);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Form container */
+.signup-form {
+  width: 100%;
+}
+
+/* Input styling */
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.signup-form .form-group label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.signup-form .form-group input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #DADAF2;
+  border-radius: 8px;
+  outline: none;
+  background: #f4f7fc;
+  font-size: 16px;
+  padding: 0 15px;
+  transition: all 0.3s ease;
+}
+
+.signup-form .form-group input:focus {
+  border-color: orange;
+  box-shadow: 0 0 8px rgba(42, 61, 255, 0.3);
+}
+
+/* Error text styling */
+.signup-form .form-group .error-text {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+/* Admin checkbox styling */
+/* Admin checkbox styling */
+.inp {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+input[type='checkbox'] {
+  width: 20px; /* Increased size */
+  height: 20px; /* Increased size */
+  margin-right: 10px; /* Space between checkbox and label */
+}
+
+
+
+/* SignUp button styling */
+.c1{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(160, 100, 40);  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.c1:hover {
+  background: brown;
+  transform: translateY(-3px);
+    background-color: rgb(140, 80, 30);
+    transform: translateY(-2px);
+    color: white;
+  }
+  
+.c1:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(160, 100, 40, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 40px 25px;
+  }
+
+  .signup-title {
+    font-size: 24px;
+  }
+
+  .c1 {
+    height: 45px;
+    font-size: 16px;
+  }
+}
+/* Login redirect styling */
+.login-redirect {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.login-redirect .login-link {
+  color: brown;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.login-redirect .login-link:hover {
+  color: brown;
+}
+
