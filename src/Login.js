@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
-import './SignUp.css';
+import "./SignUp.css";
 
 const Login = () => {
   const { login, logout, user } = useAuth();
@@ -11,9 +11,8 @@ const Login = () => {
     isAdmin: false,
     adminKey: "",
   });
-
   const [errors, setErrors] = useState({});
-  const [showDropdown, setShowDropdown] = useState(false); // To handle the visibility of the dropdown
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -28,26 +27,33 @@ const Login = () => {
     let newErrors = {};
     if (!formData.email) newErrors.email = "Email is required";
     if (!formData.password) newErrors.password = "Password is required";
-    if (formData.isAdmin && !formData.adminKey) newErrors.adminKey = "Admin key is required"; // Only check if admin is true
+    if (formData.isAdmin && !formData.adminKey) {
+      newErrors.adminKey = "Admin key is required";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      if (formData.isAdmin) {
-        if (formData.adminKey === "123") {
-          login();
-          navigate("/managea");  // Admin dashboard page
-        } else {
-          login();
-          navigate("/");  // Regular user landing page
-        }
+    if (!validateForm()) return;
+    
+    try {
+      const response = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      if (response.ok) {
+        login(data);
+        navigate(formData.isAdmin ? "/managea" : "/");
       } else {
-        logout();
-        setErrors({ adminKey: "Invalid admin key" });
+        setErrors({ general: data.message || "Invalid credentials" });
       }
+    } catch (error) {
+      setErrors({ general: "Server error. Please try again." });
     }
   };
 
@@ -57,12 +63,13 @@ const Login = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login"); // Redirect to the login page after logout
+    navigate("/login");
   };
 
   return (
     <div className="signup-container">
       <h2 className="signup-title">Login</h2>
+      {errors.general && <p className="error-text">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
           <label>Email</label>
@@ -85,7 +92,7 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
             className={errors.password ? "input-error" : ""}
-            placeholder="Create a password"
+            placeholder="Enter your password"
           />
           {errors.password && <small className="error-text">{errors.password}</small>}
         </div>
@@ -98,10 +105,11 @@ const Login = () => {
             onChange={handleChange}
             className="form-check-input"
           />
-          <label className="form-check-label" style={{ marginTop: '2px', marginLeft: '5px' }}>Login as Admin</label>
+          <label className="form-check-label" style={{ marginTop: "2px", marginLeft: "5px" }}>
+            Login as Admin
+          </label>
         </div>
 
-        {/* Only display the admin key input field if isAdmin is true */}
         {formData.isAdmin && (
           <div className="form-group">
             <label>Admin Key</label>
@@ -116,15 +124,15 @@ const Login = () => {
             {errors.adminKey && <small className="error-text">{errors.adminKey}</small>}
           </div>
         )}
+
         <button type="submit" className="btn c1">Login</button>
-      </form><br />
-      
+      </form>
+      <br />
       <button type="button" className="btn-google c1">Continue with Google</button>
       <p className="login-redirect">
         Don’t have an account? <span className="login-link" onClick={() => navigate("/signup")}>Sign Up here</span>
       </p>
 
-      {/* Show dropdown for logged-in non-admin users */}
       {user && !formData.isAdmin && (
         <div>
           <button onClick={toggleDropdown} className="btn-dropdown">

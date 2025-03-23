@@ -10,20 +10,20 @@ import InfoCards from "./InfoCards";
 
 function ListeCard() {
     const heroStyle = {
-        backgroundImage: `url('${process.env.PUBLIC_URL}/or.png')`,  
+        backgroundImage: `url(${process.env.PUBLIC_URL}/orange.jpg)`,  
         backgroundSize: "cover",
         width: "100%",
-        height: "480px",
+        height: "500px",
         color: "white",
         display: "flex",
-        marginTop: "15px",
         flexDirection: "column",
-        justifyContent: "left",
-        alignItems: "flex-start",
-        textAlign: "start",
+        justifyContent: "center", /* Centre verticalement */
+        alignItems: "center", /* Centre horizontalement */
+        textAlign: "center", /* Assure le centrage du texte */
         backgroundPosition: "center",
         position: "relative",
     };
+    
 
     const { city, category } = useSelector((state) => state);
     const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function ListeCard() {
 
     const translations = {
         en: {
-            banner: "Exclusive deals, premium finds—your perfect marketplace awaits",
+            banner: "Find the Best Deals!",
             filterBy: "Filter By",
             categories: {
                 electronique: "Electronics",
@@ -58,7 +58,7 @@ function ListeCard() {
             }
         },
         fr: {
-            banner: "Offres exclusives, trouvailles premium—votre marché parfait vous attend",
+            banner: "Trouvez les meilleures offres !",
             filterBy: "Filtrer Par",
             categories: {
                 electronique: "Électronique",
@@ -73,7 +73,7 @@ function ListeCard() {
             }
         },
         es: {
-            banner: "Ofertas exclusivas, hallazgos premium—tu mercado perfecto te espera",
+            banner: "¡Encuentra las mejores ofertas!",
             filterBy: "Filtrar Por",
             categories: {
                 electronique: "Electrónica",
@@ -102,12 +102,14 @@ function ListeCard() {
     return (
         <div>
             <section className="hero-section" style={heroStyle}>
-                <h3 className="hero-subtitle">{t.banner}</h3>
+            <h3 className="hero-subtitle">{t.banner}</h3>
+            <button className="cute-btn" onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })}>
+        🛍 Explore Now!
+            </button>
             </section>
 
             <Page />
             <Categories />
-
             {/* Language Toggle with Flags */}
             <div className="language-toggle" onClick={toggleLanguage} style={{ cursor: "pointer", textAlign: "center", margin: "10px 0" }}>
                 <img
@@ -126,7 +128,8 @@ function ListeCard() {
                         className="form-selectc styled-select"
                         onChange={(e) => dispatch({ type: "SET_CITY", payload: e.target.value })}
                     >
-                        <option value="">{t.filterBy}</option>
+                        <option value="" className="filter-default" style={{ color: '#ff7f50' }}>{t.filterBy}</option>
+
                         <option value="Tangier">{t.cities.Tangier}</option>
                         <option value="Casablanca">{t.cities.Casablanca}</option>
                         <option value="Agadir">{t.cities.Agadir}</option>
@@ -150,7 +153,7 @@ function ListeCard() {
             </div>
 
             {/* Cards Section */}
-            <h2 className="ms-5" style={{ borderBottom: "2px solid black", width: "210px" }}>All Categories</h2>
+            <h2 className="ms-5 " style={{ borderBottom: "2px solid black", width: "260px" ,fontFamily:'cursive' }}>All Categories</h2>
 
             <div className="cards-container">
                 {filteredProducts.length > 0 ? (
