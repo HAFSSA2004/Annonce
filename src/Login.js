@@ -37,25 +37,27 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    
+
     try {
-      const response = await fetch("http://localhost:8000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      
-      const data = await response.json();
-      if (response.ok) {
-        login(data);
-        navigate(formData.isAdmin ? "/managea" : "/");
-      } else {
-        setErrors({ general: data.message || "Invalid credentials" });
-      }
+        const response = await fetch("http://localhost:8000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            // Save userId to local storage
+            localStorage.setItem("userId", data.userId); // Ensure you have userId in the response
+            login(data);
+            navigate(formData.isAdmin ? "/managea" : "/");
+        } else {
+            setErrors({ general: data.message || "Invalid credentials" });
+        }
     } catch (error) {
-      setErrors({ general: "Server error. Please try again." });
+        setErrors({ general: "Server error. Please try again." });
     }
-  };
+};
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -149,4 +151,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;
