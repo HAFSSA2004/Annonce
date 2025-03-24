@@ -37,14 +37,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
+    
     try {
       const response = await fetch("http://localhost:8000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
+      
       const data = await response.json();
       if (response.ok) {
         login(data);
@@ -149,5 +149,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
