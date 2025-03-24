@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 function MyAdds() {
-  const [ads, setAds] = useState([]); // Gérer les annonces en local
+  const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Récupérer l'userId depuis localStorage
   const storedUserId = localStorage.getItem("userId");
   console.log("Stored userId:", storedUserId);
 
@@ -27,7 +26,7 @@ function MyAdds() {
         const data = await response.json();
         console.log("Ads received:", data);
 
-        setAds(data); // Mettre à jour l'état local avec les annonces
+        setAds(data);
       } catch (err) {
         console.error("Fetch error:", err);
         setError(err.message);
@@ -42,7 +41,6 @@ function MyAdds() {
   if (loading) return <p>Loading ads...</p>;
   if (error) return <p className="text-danger">{error}</p>;
 
-  // Suppression des doublons basés sur `id`
   const uniqueAds = Array.from(new Map(ads.map((ad) => [ad.id, ad])).values());
 
   return (
@@ -84,10 +82,10 @@ function MyAdds() {
                   ) : (
                     <div className="bg-light rounded" style={{ width: "120px", height: "120px" }}></div>
                   )}
-                  <div className="text-left">
-                    <h5 className="mb-1 text-dark">{ad.title || "No Title"}</h5>
+                  <div>
+                    <h5 className="mb-1">{ad.title || "No Title"}</h5>
                     <p className="text-success fw-bold mb-1">Price: ${ad.price || "N/A"}</p>
-                    <p className="mb-0">{ad.description || "No description available"}</p>
+                    <p>{ad.description || "No description available"}</p>
                   </div>
                 </div>
               </div>
