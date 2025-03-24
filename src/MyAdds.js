@@ -10,6 +10,9 @@ function MyAdds() {
   console.log("Stored userId:", storedUserId);
 
   useEffect(() => {
+    const storedUserId = localStorage.getItem("userId") || "";
+    console.log("Stored userId before fetch:", storedUserId);
+  
     if (!storedUserId) {
       setError("User ID not found. Please log in again.");
       setLoading(false);
