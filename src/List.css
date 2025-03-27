@@ -77,6 +77,8 @@
     width: 100%;
     padding: 10px 10px 10px 40px; /* Space for the icon */
     font-size: 16px;
+    color: #ff7f50;
+    font-weight: bold;
     border: 1px solid #ccc;
     border-radius: 15px;
     background-color: #f9f9f9;
@@ -97,7 +99,7 @@
     left: 15px;
     transform: translateY(-50%);
     font-size: 16px;
-    color: #888;
+    color: #ff7f50;
     pointer-events: none; /* Prevent icon from interfering with select click */
 }
 
@@ -117,4 +119,26 @@
 /* Custom Arrow (Optional if you want to hide native arrow completely) */
 .styled-select::-ms-expand {
     display: none; /* For IE */
+}
+.cute-btn {
+    background-color: white ; /* Une couleur vive et attirante */
+    color: #ff7f50;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Style amusant */
+    margin-top: 5px;
+}
+
+.cute-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.filter-default {
+    color: #ff7f50 !important;
 }

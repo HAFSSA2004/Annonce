@@ -6,8 +6,17 @@ function MyAdds() {
   const [error, setError] = useState(null);
 
   // Récupérer l'userId depuis localStorage 
-  const storedUserId = localStorage.getItem("userId");
+  let storedUserId = localStorage.getItem("userId");
   console.log("Stored userId:", storedUserId);
+  
+try {
+  storedUserId = JSON.parse(storedUserId); // Essaye de parser l'ID
+  if (Array.isArray(storedUserId)) {
+    storedUserId = storedUserId[0]; // Prend le premier élément si c'est un tableau
+  }
+} catch (error) {
+  console.log("UserId is not JSON encoded:", storedUserId);
+}
 
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId") || "";
@@ -23,7 +32,8 @@ function MyAdds() {
       try {
         console.log("Fetching ads for userId:", storedUserId);
 
-        const response = await fetch(`http://localhost:8000/products/user/${storedUserId}`);
+        const response = await fetch(`http://localhost:8000/products/user/${encodeURIComponent(storedUserId)}`);
+
 
         if (!response.ok) throw new Error("Failed to fetch ads.");
 
