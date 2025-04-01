@@ -32,7 +32,7 @@ function ListeCard() {
     const [products, setProducts] = useState([]); // Store fetched products
 
     useEffect(() => {
-        axios.get("http://localhost:8000/products") // Replace with your actual backend URL
+        axios.get("https://qui-api-v57t.vercel.app/products") // Replace with your actual backend URL
             .then((response) => {
                 setProducts(response.data); // Store fetched data in state
             })
