@@ -94,7 +94,7 @@ function AddAds() {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/products", {
+      const response = await fetch("https://qui-api-v57t.vercel.app/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newAd),
