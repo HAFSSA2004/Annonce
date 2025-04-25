@@ -15,6 +15,7 @@ function ItemInformation() {
         const fetchProduct = async () => {
             try {
                 const response = await axios.get(`https://qui-api-v57t.vercel.app/produits/${id}`);
+                //hgodzi
                 console.log("Product data:", response.data);
                 setProduct(response.data);
             } catch (error) {
