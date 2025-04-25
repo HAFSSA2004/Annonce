@@ -10,18 +10,24 @@ function ItemInformation() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
+        console.log("Fetching product with ID:", id);
+    
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/produits/${id}`);
+                const response = await axios.get(`https://qui-api-v57t.vercel.app/produits/${id}`);
+                console.log("Product data:", response.data);
                 setProduct(response.data);
             } catch (error) {
+                console.error("Error fetching data:", error);
                 setError("Product not found");
             }
         };
-
-        if (id) fetchProduct();
+    
+        if (id) {
+            fetchProduct();
+        }
     }, [id]);
-
+    
     if (error) return <p>{error}</p>;
     if (!product) return <p>Loading...</p>;
 
