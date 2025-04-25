@@ -7,7 +7,7 @@ export const AdsProvider = ({ children }) => {
 
   // Fetch ads from the backend on load
   useEffect(() => {
-    fetch("http://localhost:8000/products")
+    fetch("https://qui-api-v57t.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setAds(data))
       .catch((error) => console.error("Error fetching ads:", error));
