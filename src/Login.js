@@ -39,7 +39,7 @@ const Login = () => {
     if (!validateForm()) return;
     
     try {
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("https://qui-api-v57t.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

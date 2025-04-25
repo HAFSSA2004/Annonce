@@ -32,7 +32,7 @@ try {
       try {
         console.log("Fetching ads for userId:", storedUserId);
 
-        const response = await fetch(`http://localhost:8000/products/user/${encodeURIComponent(storedUserId)}`);
+        const response = await fetch(`https://qui-api-v57t.vercel.app/products/user/${encodeURIComponent(storedUserId)}`);
 
 
         if (!response.ok) throw new Error("Failed to fetch ads.");
