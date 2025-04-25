@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaTrash } from "react-icons/fa";
 import axios from "axios"; // Import d'Axios
 
-const API_URL = "http://localhost:8000/products"; // Assure-toi que c'est l'URL correcte
+const API_URL = "https://qui-api-v57t.vercel.app/products"; // Assure-toi que c'est l'URL correcte
 
 const ManageValidation = () => {
   // Stocker les produits dans l'état local
